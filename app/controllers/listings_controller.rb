@@ -10,7 +10,17 @@ class ListingsController < ApplicationController
   end
 
   def create
-
+    listing = Listing.new
+    listing.title = params[:title]
+    listing.street = params[:street]
+    listing.city = params[:city]
+    listing.postcode = params[:postcode]
+    listing.moving_date = params[:moving_date]
+    listing.moving_time = params[:moving_time]
+    listing.price = params[:price]
+    listing.description = params[:description]
+    listing.title = params[:title]
+    listing.image
     redirect_to '/listings'
   end
 

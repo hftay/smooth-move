@@ -13,6 +13,12 @@ class PagesController < ApplicationController
   def index
 
   end
+  def logout
+
+    session.delete('user_id')
+    redirect_to '/'
+  end
+
   def validate_logon
 
     user = User.find_by_email(params[:email])

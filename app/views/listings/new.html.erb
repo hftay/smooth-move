@@ -2,7 +2,35 @@
 
 <%= form_tag "/listings", method:"post" do %>
 
-  <h1>ENTER DETAILS</h1>
+  <label for="title">Title</label>
+  <input type="text" name="title" value="">
+
+  <label for="street">Street</label>
+  <input type="text" name="street" value="">
+
+  <label for="city">City</label>
+  <input type="text" name="city" value="">
+
+  <label for="postcode">Post Code</label>
+  <input type="text" name="postcode" value="">
+
+  <label for="moving_date">Moving Date</label>
+  <input type="date" name="moving_date" value="">
+
+  <label for="moving_time">Moving Time</label>
+  <input type="time" name="moving_time" value="">
+
+  <label for="price">Price</label>
+  <input type="text" name="price" value="">
+
+  <label for="description">Description</label>
+  <input type="text" name="description" value="">
+
+  <label for="image">Image</label>
+  <input type="text" name="image" value="">
+
+  <label for="helpers">Num of Helpers</label>
+  <input type="text" name="helpers" value="">
 
   <button  >Create</button>
 
