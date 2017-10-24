@@ -13,20 +13,20 @@ class PagesController < ApplicationController
   def index
 
   end
-  # def session
-  #
-  #   user = User.find_by_email(params[:email])
-  #   if user != nil
-  #     user.valid_password?(params[:password])
-  #   end
-  #
-  #   if user && user.valid_password?(params[:password])
-  #     session[:user_id] = user.id
-  #     redirect_to '/listings'
-  #   else
-  #     @message = 'Incorrect email or password'
-  #
-  #   end
-  #
-  # end
+  def validate_logon
+
+    user = User.find_by_email(params[:email])
+    if user != nil
+      user.valid_password?(params[:password])
+    end
+
+    if user && user.valid_password?(params[:password])
+      session[:user_id] = user.id
+      redirect_to '/listings'
+    else
+      @message = 'Incorrect email or password'
+      render 'login'
+    end
+
+  end
 end
