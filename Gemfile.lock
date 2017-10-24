@@ -160,7 +160,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bcrypt
+=======
+  bcrypt (~> 3.1.7)
+>>>>>>> added bcrypt gem & modified seed to include pw
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
