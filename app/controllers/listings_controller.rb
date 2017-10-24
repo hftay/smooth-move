@@ -20,7 +20,7 @@ class ListingsController < ApplicationController
     listing.price = params[:price]
     listing.description = params[:description]
     listing.title = params[:title]
-    listing.image
+    listing.image 
     redirect_to '/listings'
   end
 
