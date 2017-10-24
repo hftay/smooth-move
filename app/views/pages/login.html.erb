@@ -1,5 +1,7 @@
 <h1>LOGIN</h1>
 
+<h3><%=  @message %></h3>
+
 <%= form_tag "/session", method:"get" do %>
   <label for="email">Email</label>
   <input type="email" name="email" value="">
