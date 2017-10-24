@@ -13,14 +13,14 @@ Listing.destroy_all
 User.destroy_all
 
 User.create([
-	{ name: "Peter", phone: "0422188199", email: "a@gmail.com"},
+	{ name: "DT", phone: "0422188199", email: "a@gmail.com", password_digest: "pudding" },
 	{ name: "Darryl", phone: "0422188199", email: "a@gmail.com"},	 
-	{ name: "Hsing", phone: "0422188199", email: "a@gmail.com"}
+	{ name: "Hsing", phone: "0422188199", email: "a@gmail.com"},
+	{ name: "Jessica", phone: "0422188199", email: "a@gmail.com"},
+	{ name: "Pauline", phone: "0422188199", email: "a@gmail.com"}	
 ])
 
-#password
-
-Listing.create(street: "45 William", city: "Melbourne", state: "Victoria", postcode: 3000, price: 10, description: "help me move", image: "furniture.png", creator: User.first)
+Listing.create(title: "Van and one helper needed" street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "furniture.png", creator: User.first, open: true, num_helpers_needed: 1)
 
 Tag.create([
 	{ name: "Transport" },
