@@ -20,7 +20,13 @@ User.create([
 	{ name: "Pauline", phone: "0422188199", email: "a@gmail.com", password: "pudding" }	
 ])
 
-Listing.create(title: "Van and one helper needed", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "furniture.png", creator: User.first, open: true, num_helpers_needed: 1)
+Listing.create([
+	{title: "Van and one helper needed", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "furniture.png", creator: User.first, open: true, num_helpers_needed: 1},
+	{title: "Help move Bed and Mattress $50", creator: User.all[0] },
+	{title: "Pickup truck needed for move", creator: User.all[1] },
+	{title: "Need boxes and tape for move", creator: User.all[2] },
+	{title: "Desperately need help for moving inner CBD", creator: User.all[3] }
+	])
 
 Tag.create([
 	{ name: "Transport" },

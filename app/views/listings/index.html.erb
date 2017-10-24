@@ -1,15 +1,15 @@
 <h1>SHOW ALL LISTINGS</h1>
 
-  <% @listings.each do |listing | %>
-    <a href="/listings/<%=listing.id %>"><%= listing.description %></a>
-    <a href="/listings/<%=listing.id %>/edit">EDIT</a>
+<% @listings.each do |listing | %>
+  <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+  <a href="/listings/<%=listing.id %>/edit">EDIT</a>
 
-    <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
+  <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
 
-      <button>Delete</button>
-
-    <% end %>
+    <button>Delete</button>
 
   <% end %>
 
-  <% session[:return_to] = '/listings' %>
+<% end %>
+
+<% session[:return_to] = '/listings' %>
