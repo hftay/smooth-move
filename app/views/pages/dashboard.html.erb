@@ -72,11 +72,15 @@
           </div>
           <div class="card-footer">
 
+<<<<<<< HEAD
             <% listing.tags.each do |tag| %>
               <div><i class="fa fa-tags" aria-hidden="true"></i>
                 <%=tag.name %>
               </div>
             <% end %>
+=======
+      <button id="delete-btn" >Delete</button>
+>>>>>>> saving changes so that I can make pull request
 
           </div>
         </div>
@@ -103,4 +107,35 @@
   </div>
   <!-- /.row -->
 </div>
+<<<<<<< HEAD
 <!-- /container -->
+=======
+<<<<<<< HEAD
+<!-- /container -->
+=======
+
+<script>
+var token = $('meta[name="csrf-token"]').attr('content');
+
+$('#delete-btn').on('click', function(event) {
+  event.preventDefault();
+  debugger
+
+  var options = {
+    url: "/api/listings",
+    method: 'delete',
+    data: {
+      listing_id: 24
+      // change this
+    }
+  }
+  var doneComment = function(response) {
+    console.log('you have deleted this person as a helper')
+  }
+  $.ajax(options).done(doneComment);
+
+});
+
+</script>
+>>>>>>> saving changes so that I can make pull request
+>>>>>>> saving changes so that I can make pull request
