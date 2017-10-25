@@ -13,11 +13,11 @@ Listing.destroy_all
 User.destroy_all
 
 User.create([
-	{ name: "DT", phone: "0422188199", email: "a@gmail.com", password: "pudding" },
-	{ name: "Darryl", phone: "0422188199", email: "a@gmail.com", password: "pudding" },	 
-	{ name: "Hsing", phone: "0422188199", email: "a@gmail.com", password: "pudding" },
-	{ name: "Jessica", phone: "0422188199", email: "a@gmail.com", password: "pudding" },
-	{ name: "Pauline", phone: "0422188199", email: "a@gmail.com", password: "pudding" }	
+	{ name: "DT", phone: "0422188199", email: "dt@gmail.com", password: "pudding" },
+	{ name: "Darryl", phone: "0422188199", email: "darryl@gmail.com", password: "pudding" },	 
+	{ name: "Hsing", phone: "0422188199", email: "hsing@gmail.com", password: "pudding" },
+	{ name: "Jessica", phone: "0422188199", email: "jessica@gmail.com", password: "pudding" },
+	{ name: "Pauline", phone: "0422188199", email: "pauline@gmail.com", password: "pudding" }	
 ])
 
 Listing.create([
