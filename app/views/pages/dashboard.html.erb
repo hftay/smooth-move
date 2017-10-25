@@ -1,34 +1,105 @@
-<div class="display-container">
-  <h1>DASHBOARD PAGE</h1>
-  
-  <div class="main-display">
-  
-    <h2>All your listings</h2>
-      
-      <% @my_listings.each do |listing | %>
-        <div class="info-container">
-          <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
-          <div class="flex-container"></div>
-       </div>
-          <a href="/listings/<%=listing.id %>/edit"><button type="button" class="btn btn-dark">EDIT</button></a>
-          <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-            <button type="button" class="btn btn-dark">delete</button>
-          <% end %>
+<h1 class="page-title">My Listings</h1>
+<div class="container">
+  <div class="row">
+    <% @my_listings.each do |listing | %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+                  </h4>
+            <h5>$<%= listing.price %></h5>
+            <p class="card-text">
+              <%=listing.description %>
+            </p>
+          </div>
+          <div class="card-footer">
+
+            <% listing.tags.each do |tag| %>
+              <div><i class="fa fa-tags" aria-hidden="true"></i>
+                <%=tag.name %>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+<!--Buttons-->
+
+          <div class="container btn-container">
+            <div class="OuterMostClass row">
+              <div class="outerClass col-xs-6">
+                <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
+              </div><!--outermost class col 6-->
+              <div class="outerClass2 col-xs-6">
+                <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
+              <button type="button" class="btn btn-info btn-dark delete">DELETE</button>
+              </div><!--Outermost class col-6-->
+            </div> <!-- .outermostclass ROW-->
+          </div> <!--.btn-container-->
+                <% end %>
+
       <% end %>
 
+        <% session[:return_to]='/listings' %>
+
   </div>
-
-  <hr>
-
-  <h2>Listings you are helping with</h2>
-  <% @listings_helping.each do |listing | %>
-    <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
-    <a href="/listings/<%=listing.id %>/edit">EDIT</a>
-    <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-
-      <button>Delete</button>
-
-    <% end %>
-  <% end %>
-  <% session[:return_to] = '/dashboard' %>
+  <!-- /.row -->
 </div>
+<!-- /container -->
+
+<div>
+  <hr>
+</div>
+
+<h1 class="page-title">I am helping with</h1>
+<div class="container">
+  <div class="row">
+    <% @listings_helping.each do |listing | %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+                   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+                  </h4>
+            <h5>$<%= listing.price %></h5>
+            <p class="card-text">
+              <%=listing.description %>
+            </p>
+          </div>
+          <div class="card-footer">
+
+            <% listing.tags.each do |tag| %>
+              <div><i class="fa fa-tags" aria-hidden="true"></i>
+                <%=tag.name %>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+<!--Buttons-->
+
+          <div class="container btn-container">
+            <div class="OuterMostClass row">
+              <div class="outerClass col-xs-6">
+                <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
+              </div><!--outermost class col 6-->
+              <div class="outerClass2 col-xs-6">
+                <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
+              <button type="button" class="btn btn-info btn-dark delete">DELETE</button>
+              </div><!--Outermost class col-6-->
+            </div> <!-- .outermostclass ROW-->
+          </div> <!--.btn-container-->
+                <% end %>
+
+      <% end %>
+
+        <% session[:return_to]='/listings' %>
+
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /container -->

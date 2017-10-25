@@ -1,13 +1,15 @@
-.display-container {
-	padding-top: 100px;
-  margin-top: 10px;
+
+.delete {
+margin-left: 10px;
 }
 
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    width: 400px;
-    height: 250px;
-    background-color: lightgrey;
-    margin: 20px;
+.btn-container {
+	width: 166px;
 }
+
+.page-title {
+	text-align: center;
+	margin: 10px 0px 20px 0px;
+	text-decoration: underline;
+}
+

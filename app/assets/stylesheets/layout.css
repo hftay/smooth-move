@@ -10,5 +10,15 @@
 }
 
 .main-container {
-	padding: 200px;
+padding-top: 200px;
+}
+
+a, button {
+	cursor: pointer;
+}
+
+.page-title {
+	text-align: center;
+	margin: 10px 0px 20px 0px;
+	text-decoration: underline;
 }
