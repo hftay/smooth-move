@@ -2,9 +2,19 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
     @tags = Tag.all
+    
+    if params[:tag_id] == ""
+      @listings = Listing.all
+    else
+      # @listings = Listing.where(  )
+
+      @ListingTag = ListingTag.where(tag_id: params[:tag_id]).first.listing
+    end
+      # params[:tag_id]
+      byebug
   end
+
 
   def new
     @tags = Tag.all
