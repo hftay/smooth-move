@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 
   def index
     @tags = Tag.all
-    
+
     if params[:tag_id] && params[:tag_id] != "show_all"
       @listings = []
       @closed_listings = []
@@ -19,12 +19,13 @@ class ListingsController < ApplicationController
     else
       @listings = Listing.where(open: true)
       @closed_listings = Listing.where(open: false)
-    end      
+    end
   end
 
 
   def new
     @tags = Tag.all
+    @listing = Listing.new
   end
 
   def create
@@ -43,17 +44,23 @@ class ListingsController < ApplicationController
     if params[:helpers] == ""
       params[:helpers] = 1
     end
+
+    listing.image = params[:listing][:image]
+
     listing.num_helpers_needed = params[:helpers].to_i
     listing.open = true
 
     listing.save
 
     tags = params[:tags]
-    tags.each do |tag|
-      listing_tag = ListingTag.new
-      listing_tag.listing_id = listing.id.to_i
-      listing_tag.tag_id = tag.to_i
-      listing_tag.save
+    # ?????????????????
+    if tags != nil
+      tags.each do |tag|
+        listing_tag = ListingTag.new
+        listing_tag.listing_id = listing.id.to_i
+        listing_tag.tag_id = tag.to_i
+        listing_tag.save
+      end
     end
 
     redirect_to '/listings'
@@ -85,7 +92,7 @@ class ListingsController < ApplicationController
     @listing.creator_id = session[:user_id].to_i
     @listing.num_helpers_needed = params[:helpers]
     @listing.save
-  
+
     redirect_to session[:return_to]
   end
 

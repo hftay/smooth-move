@@ -8,11 +8,13 @@ class Listing < ApplicationRecord
 
 	belongs_to :creator, class_name: "User", foreign_key: "creator_id"
 
+  mount_uploader :image, ImageUploader
+	
 	def full_street_address
 		[street,city,state,postcode].join(', ')
 	end
 
 	geocoded_by :full_street_address
 	after_validation :geocode
-	
+
 end
