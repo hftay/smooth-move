@@ -2,8 +2,9 @@
 
 <!-- Filter by tag -->
 <span>Filter by Tags:</span>
-	<i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=show_all">Show All</a> |
+	<i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=show_all">Show All</a>
 <% @tags.each do |tag| %>
+  <i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=<%= tag.id %>"> <%= tag.name %></a>  
 <% end %>	
 <br>
 
@@ -46,7 +47,7 @@
       </div>
       <% end %>
 
-        <% session[:return_to]='/listings' %>
+      <% session[:return_to]='/listings' %>
 
   </div>
   <!-- /.row -->
