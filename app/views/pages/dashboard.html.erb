@@ -1,16 +1,25 @@
 <h1>DASHBOARD PAGE</h1>
 
   <h2>All your listings</h2>
-  <% @listings.each do |listing | %>
-    <a href="/listings/<%=listing.id %>"><%= listing.description %></a>
+  <% @my_listings.each do |listing | %>
+    <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
     <a href="/listings/<%=listing.id %>/edit">EDIT</a>
     <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
 
       <button>Delete</button>
 
-    <% end %>  <% end %>
+    <% end %>
+  <% end %>
 
   <hr>
   <h2>Listings you are helping with</h2>
+  <% @listings_helping.each do |listing | %>
+    <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+    <a href="/listings/<%=listing.id %>/edit">EDIT</a>
+    <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
 
+      <button>Delete</button>
+
+    <% end %>
+  <% end %>
   <% session[:return_to] = '/dashboard' %>

@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
   end
 
   def new
-
+    @tags = Tag.all
   end
 
   def create
@@ -23,10 +23,21 @@ class ListingsController < ApplicationController
     listing.title = params[:title]
     listing.image = params[:image]
     listing.creator_id = session[:user_id].to_i
-    listing.num_helpers_needed = params[:helpers]
+    if params[:helpers] == ""
+      params[:helpers] = 1
+    end
+    listing.num_helpers_needed = params[:helpers].to_i
     listing.open = true
 
     listing.save
+
+    tags = params[:tags]
+    tags.each do |tag|
+      listing_tag = ListingTag.new
+      listing_tag.listing_id = listing.id.to_i
+      listing_tag.tag_id = tag.to_i
+      listing_tag.save
+    end
 
     redirect_to '/listings'
   end

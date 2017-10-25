@@ -3,8 +3,8 @@ class PagesController < ApplicationController
 
   end
   def dashboard
-    @listings = Listing.all # where user is logged on user
-
+    @my_listings = Listing.where(creator_id: current_user)
+    @listings_helping = current_user.listings
   end
   def edit
     @listing = Listing.find(params[:id])
