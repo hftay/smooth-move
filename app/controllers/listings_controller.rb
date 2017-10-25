@@ -4,15 +4,16 @@ class ListingsController < ApplicationController
   def index
     @tags = Tag.all
     
-    if params[:tag_id] == ""
-      @listings = Listing.all
+    if params[:tag_id]
+      @listings = []
+      @ListingTags = ListingTag.where(tag_id: params[:tag_id])
+      @ListingTags.each do |listingtag|
+        x = listingtag.listing
+        @listings.push(x)
+      end
     else
-      # @listings = Listing.where(  )
-
-      @ListingTag = ListingTag.where(tag_id: params[:tag_id]).first.listing
-    end
-      # params[:tag_id]
-      byebug
+      @listings = Listing.all
+    end      
   end
 
 

@@ -22,10 +22,10 @@ User.create([
 
 Listing.create([
 	{title: "Van and one helper needed", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "furniture.png", creator: User.first, open: true, num_helpers_needed: 1},
-	{title: "Help move Bed and Mattress $50", creator: User.all[0] },
-	{title: "Pickup truck needed for move", creator: User.all[1] },
-	{title: "Need boxes and tape for move", creator: User.all[2] },
-	{title: "Desperately need help for moving inner CBD", creator: User.all[3] }
+	{title: "Help move Bed and Mattress $50", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[0] },
+	{title: "Pickup truck needed for move", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[1] },
+	{title: "Need boxes and tape for move", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[2] },
+	{title: "Desperately need help for moving inner CBD", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[3] }
 	])
 
 Tag.create([
@@ -41,7 +41,10 @@ UserListing.create([
 
 ListingTag.create([
 	{ listing: Listing.first, tag: Tag.all[0] },
-	{ listing: Listing.first, tag: Tag.all[1] }
+	{ listing: Listing.first, tag: Tag.all[1] },
+	{ listing: Listing.all[1], tag: Tag.all[0] },
+	{ listing: Listing.all[2], tag: Tag.all[0] },
+	{ listing: Listing.all[3], tag: Tag.all[0] }			
 ])
 
 

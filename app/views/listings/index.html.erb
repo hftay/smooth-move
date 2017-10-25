@@ -1,24 +1,9 @@
 <h1>SHOWING ALL LISTINGS</h1>
 
-<!-- Dropdown box -->
-<%= form_tag "/listings/", method: "get" do %>
-
-<select name="" id="">
-	<option value="">Show All</option>
-	<% @tags.each do |tag| %>
-	
-			<option value="<%= tag.id %>"> <%= tag.name %> </option>
-	
-	<% end %>
-</select>
-<% end %>
-
-<br>
-
-
-	<% @tags.each do |tag| %>
-		<a href="/listings?tag_id=<%= tag.id %> "><%= tag.name %></a>
-	<% end %>	
+<!-- Filter by tag -->
+<% @tags.each do |tag| %>
+	<a href="/listings?tag_id=<%= tag.id %> "><%= tag.name %></a>
+<% end %>	
 <br>
 
 
@@ -30,7 +15,6 @@
 		console.log($(event.target).val());
 		// @listings = Listing.last; 
 	})
-
 </script>
 
 
