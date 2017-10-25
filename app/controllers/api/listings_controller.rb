@@ -36,7 +36,10 @@ class Api::ListingsController < ApplicationController
     render json: { new_number: listing.num_helpers_needed }
   end
   def destroy
-    @listing = Listing.find(params[:id])
+    @listing = Listing.find(params[:listing_id])
+    thisUserListing = UserListing.where(listing_id: params[:listing_id], user_id: current_user.id)
+    @listing.open = true
+    thisUserListing.destroy
+    thisUserListing.save
   end
-
 end
