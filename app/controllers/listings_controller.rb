@@ -36,6 +36,8 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @date = String(@listing.moving_time)
+    @date = @date.slice(11..15)
   end
 
   def update

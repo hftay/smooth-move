@@ -8,7 +8,8 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 400px;
+        width: 400px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -20,22 +21,73 @@
   </head>
   <body>
     <div id="map"></div>
-    <h1>Showing 1 listing</h1>
-
-    <h2> <%= @listing.street %></h2>
+    <h3><%= @listing.creator.name %>'s listing:'</h3>
+    <h2><%= @listing.title %></h2>
+    <p>Price: <%= @listing.price %></p>
     <p><%= @listing.full_street_address %></p>
-    <p><%= @listing.longitude %></p>
-    <p><%= @listing.latitude %></p>
+    <p><%= @date %></p>
+    <p>Image url would go here:</p><img src="<%= @listing.image %>">
+    <button>I'm interested in helping</button>
+
+<!-- ajax or form? -->
+<!-- reduce num helpers needed by one -->
+
+    <button id='will-help-btn'>I'll Help!</button>
+
+
+    <script>
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $('#will-help-btn').on('click', function(event) {
+      event.preventDefault();
+
+      var options = {
+        url: '/api/listings',
+        method: 'post',
+        data: {
+          dish_id: <%= @dish.id %>,
+          body: $('textarea').val()
+        }
+      }
+
+      var appendComment = function(response) {
+        var $article = $('<article>');
+        var $p = $('<p>').text(response.body);
+        var $hr = $('<hr>');
+
+        $article.append( $p );
+        $article.append( $hr );
+        $('.comments').append( $article )
+        $article.hide().fadeIn();
+
+      }
+
+      $.ajax(options).done(appendComment);
+
+    });
+
+  </script>
+
+
+
+
+
     <script>
       var map;
       function initMap() {
+        var moving_location = {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>}
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: moving_location,
+          zoom: 15
         });
+        var marker = new google.maps.Marker({
+         position: moving_location,
+         map: map
+       });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGyR8cc8zPWBK4F52J61Gu14HB0EYnQc0&callback=initMap"
-    async defer></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGyR8cc8zPWBK4F52J61Gu14HB0EYnQc0&callback=initMap">
+    </script>
   </body>
 </html>
