@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   end
   def dashboard
-    @listings = Listing.all # where user is logged on user
+    @listings = Listing.where(creator_id: current_user)
 
   end
   def edit
