@@ -1,23 +1,25 @@
 <div class="display-container">
-    <h1>DASHBOARD PAGE</h1>
+  <h1>DASHBOARD PAGE</h1>
+  
   <div class="main-display">
+  
     <h2>All your listings</h2>
-    
-    <% @listings.each do |listing | %>
-      <div class="info-container">
-        <a href="/listings/<%=listing.id %>"><%= listing.description %></a>
-        <div class="flex-container">
+      
+      <% @my_listings.each do |listing | %>
+        <div class="info-container">
+          <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+          <div class="flex-container"></div>
+       </div>
           <a href="/listings/<%=listing.id %>/edit"><button type="button" class="btn btn-dark">EDIT</button></a>
           <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-          <button type="button" class="btn btn-dark">delete</button>
-        </div>
-    </div>
-
-
+            <button type="button" class="btn btn-dark">delete</button>
+          <% end %>
       <% end %>
-      <% end %>
+
   </div>
+
   <hr>
+
   <h2>Listings you are helping with</h2>
   <% @listings_helping.each do |listing | %>
     <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
