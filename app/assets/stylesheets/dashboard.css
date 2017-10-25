@@ -1,0 +1,13 @@
+.display-container {
+	padding-top: 100px;
+  margin-top: 10px;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 400px;
+    height: 250px;
+    background-color: lightgrey;
+    margin: 20px;
+}
