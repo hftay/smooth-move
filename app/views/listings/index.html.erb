@@ -1,8 +1,36 @@
-<h1>SHOW ALL LISTINGS</h1>
+<h1>SHOWING ALL LISTINGS</h1>
 
+<!-- Dropdown box -->
+<select name="" id="">
+	<option value="">Show All</option>
+	<% @tags.each do |tag| %>
+	<option value="<%= tag.id %>"> <%= tag.name %> </option>
+	<% end %>
+</select>
+<br>
+
+<!-- ajax call -->
+	<!-- listen for click on option, capture option's value -->
+	<!-- onclick, addclass "show" selected tag -->
+<script>
+	$('select').on("change", function(event){
+		console.log($(event.target).val())
+		
+	})
+
+</script>
+
+
+<!-- HTML section -->
 <% @listings.each do |listing | %>
   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
-  <div>Price: <%= listing.price %></div>
+  <div>Price ($): <%= listing.price %></div>
+  <div>Created By: <%= listing.creator.name %></div>
+ 
+
+	<% listing.tags.each do |tag| %>
+		<div> Tagged as: <%= tag.name %> </div>
+	<% end %>
 
   
   <a href="/listings/<%=listing.id %>/edit">EDIT</a>
