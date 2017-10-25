@@ -1,15 +1,44 @@
-<h1>SHOW ALL LISTINGS</h1>
+<h1>SHOWING ALL LISTINGS</h1>
 
-  <% @listings.each do |listing | %>
-    <a href="/listings/<%=listing.id %>"><%= listing.description %></a>
-    <a href="/listings/<%=listing.id %>/edit">EDIT</a>
+<!-- Dropdown box -->
+<select name="" id="">
+	<option value="">Show All</option>
+	<% @tags.each do |tag| %>
+	<option value="<%= tag.id %>"> <%= tag.name %> </option>
+	<% end %>
+</select>
+<br>
 
-    <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
+<!-- ajax call -->
+	<!-- listen for click on option, capture option's value -->
+	<!-- onclick, addclass "show" selected tag -->
+<script>
+	$('select').on("change", function(event){
+		console.log($(event.target).val())
+		
+	})
 
-      <button>Delete</button>
+</script>
 
-    <% end %>
 
+<!-- HTML section -->
+<% @listings.each do |listing | %>
+  <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+  <div>Price ($): <%= listing.price %></div>
+  <div>Created By: <%= listing.creator.name %></div>
+ 
+
+	<% listing.tags.each do |tag| %>
+		<div> Tagged as: <%= tag.name %> </div>
+	<% end %>
+
+  
+  <a href="/listings/<%=listing.id %>/edit">EDIT</a>
+
+  <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
+    <button>Delete</button>
   <% end %>
 
-  <% session[:return_to] = '/listings' %>
+<% end %>
+
+<% session[:return_to] = '/listings' %>

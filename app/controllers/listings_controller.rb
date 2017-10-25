@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+    @tags = Tag.all
   end
 
   def new
