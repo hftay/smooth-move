@@ -21,11 +21,11 @@ User.create([
 ])
 
 Listing.create([
-	{title: "Van and one helper needed", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "furniture.png", creator: User.first, open: true, num_helpers_needed: 1},
-	{title: "Help move Bed and Mattress $50", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[0] },
-	{title: "Pickup truck needed for move", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[1] },
-	{title: "Need boxes and tape for move", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[2] },
-	{title: "Desperately need help for moving inner CBD", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, creator: User.all[3] }
+	{title: "Van and one helper needed", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "https://i.pinimg.com/736x/01/54/55/015455c2cb944d63b65781a03354e0fc--multifunctional-furniture-small-spaces-compact-furniture.jpg", creator: User.first, open: true, num_helpers_needed: 1},
+	{title: "Help move Bed and Mattress $50", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "https://i.pinimg.com/736x/01/54/55/015455c2cb944d63b65781a03354e0fc--multifunctional-furniture-small-spaces-compact-furniture.jpg", creator: User.all[1], open: true, num_helpers_needed: 6},
+	{title: "Pickup truck needed for move", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "https://i.pinimg.com/736x/01/54/55/015455c2cb944d63b65781a03354e0fc--multifunctional-furniture-small-spaces-compact-furniture.jpg", creator: User.all[2], open: true, num_helpers_needed: 9},
+	{title: "Need boxes and tape for move", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "https://i.pinimg.com/736x/01/54/55/015455c2cb944d63b65781a03354e0fc--multifunctional-furniture-small-spaces-compact-furniture.jpg", creator: User.all[2], open: true, num_helpers_needed: 2},
+	{title: "Desperately need help for moving inner CBD", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "help me move my fridge and washer, short distance move!", image: "https://i.pinimg.com/736x/01/54/55/015455c2cb944d63b65781a03354e0fc--multifunctional-furniture-small-spaces-compact-furniture.jpg", User.all[3], open: true, num_helpers_needed: 3}}
 	])
 
 Tag.create([
