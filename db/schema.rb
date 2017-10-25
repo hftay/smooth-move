@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20171024092646) do
     t.text "title"
     t.boolean "open"
     t.integer "num_helpers_needed"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "tags", force: :cascade do |t|

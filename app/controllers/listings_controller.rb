@@ -23,7 +23,10 @@ class ListingsController < ApplicationController
     listing.title = params[:title]
     listing.image = params[:image]
     listing.creator_id = session[:user_id].to_i
-    listing.num_helpers_needed = params[:helpers]
+    if params[:helpers] == ""
+      params[:helpers] = 1
+    end
+    listing.num_helpers_needed = params[:helpers].to_i
     listing.open = true
 
     listing.save
