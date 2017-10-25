@@ -2,9 +2,20 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
     @tags = Tag.all
+    
+    if params[:tag_id]
+      @listings = []
+      @ListingTags = ListingTag.where(tag_id: params[:tag_id])
+      @ListingTags.each do |listingtag|
+        x = listingtag.listing
+        @listings.push(x)
+      end
+    else
+      @listings = Listing.all
+    end      
   end
+
 
   def new
     @tags = Tag.all

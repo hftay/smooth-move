@@ -1,23 +1,20 @@
 <h1>SHOWING ALL LISTINGS</h1>
 
-<!-- Dropdown box -->
-<select name="" id="">
-	<option value="">Show All</option>
-	<% @tags.each do |tag| %>
-	<option value="<%= tag.id %>"> <%= tag.name %> </option>
-	<% end %>
-</select>
+<!-- Filter by tag -->
+<% @tags.each do |tag| %>
+	<a href="/listings?tag_id=<%= tag.id %> "><%= tag.name %></a>
+<% end %>	
 <br>
+
 
 <!-- ajax call -->
 	<!-- listen for click on option, capture option's value -->
 	<!-- onclick, addclass "show" selected tag -->
 <script>
 	$('select').on("change", function(event){
-		console.log($(event.target).val())
-		
+		console.log($(event.target).val());
+		// @listings = Listing.last; 
 	})
-
 </script>
 
 
@@ -31,13 +28,6 @@
 	<% listing.tags.each do |tag| %>
 		<div> Tagged as: <%= tag.name %> </div>
 	<% end %>
-
-  
-  <a href="/listings/<%=listing.id %>/edit">EDIT</a>
-
-  <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-    <button>Delete</button>
-  <% end %>
 
 <% end %>
 
