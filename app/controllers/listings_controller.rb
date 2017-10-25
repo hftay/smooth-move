@@ -4,15 +4,21 @@ class ListingsController < ApplicationController
   def index
     @tags = Tag.all
     
-    if params[:tag_id]
+    if params[:tag_id] && params[:tag_id] != "show_all"
       @listings = []
-      @ListingTags = ListingTag.where(tag_id: params[:tag_id])
-      @ListingTags.each do |listingtag|
-        x = listingtag.listing
-        @listings.push(x)
+      @closed_listings = []
+      @listing_tags = ListingTag.where(tag_id: params[:tag_id])
+      @listing_tags.each do |listing_tag|
+        listing = listing_tag.listing
+        if listing.open == true
+          @listings.push(listing)
+        else
+          @closed_listings.push(listing)
+        end
       end
     else
-      @listings = Listing.all
+      @listings = Listing.where(open: true)
+      @closed_listings = Listing.where(open: false)
     end      
   end
 
