@@ -32,6 +32,11 @@
   <label for="helpers">Num of Helpers</label>
   <input type="text" name="helpers" value="">
 
+  <% @tags.each do |tag| %>
+   <label for="tab"><%= tag.name %></label>
+   <input type="checkbox" name="tags[]" value="<%= tag.id %>">
+
+  <% end %>
   <button  >Create</button>
 
 <% end %>
