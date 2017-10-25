@@ -36,43 +36,6 @@
 
 
     <script>
-    var token = $('meta[name="csrf-token"]').attr('content');
-
-    $('#will-help-btn').on('click', function(event) {
-      event.preventDefault();
-
-      var options = {
-        url: '/api/listings',
-        method: 'post',
-        data: {
-          dish_id: <%= @dish.id %>,
-          body: $('textarea').val()
-        }
-      }
-
-      var appendComment = function(response) {
-        var $article = $('<article>');
-        var $p = $('<p>').text(response.body);
-        var $hr = $('<hr>');
-
-        $article.append( $p );
-        $article.append( $hr );
-        $('.comments').append( $article )
-        $article.hide().fadeIn();
-
-      }
-
-      $.ajax(options).done(appendComment);
-
-    });
-
-  </script>
-
-
-
-
-
-    <script>
       var map;
       function initMap() {
         var moving_location = {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>}
