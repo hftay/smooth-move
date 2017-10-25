@@ -5,14 +5,21 @@ class ListingsController < ApplicationController
     @tags = Tag.all
     
     if params[:tag_id]
+      # byebug
       @listings = []
+      @closedlistings = []
       @ListingTags = ListingTag.where(tag_id: params[:tag_id])
       @ListingTags.each do |listingtag|
         x = listingtag.listing
-        @listings.push(x)
+        if x.open == true
+          @listings.push(x)
+        else
+          @closedlistings.push(x)
+        end
       end
     else
-      @listings = Listing.all
+      @listings = Listing.where(open: true)
+      @closedlistings = Listing.where(open: false)
     end      
   end
 

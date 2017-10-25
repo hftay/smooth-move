@@ -1,11 +1,12 @@
 <h1 class="page-title">ALL LISTINGS</h1>
 
 <!-- Filter by tag -->
+<span>Filter by Tags:</span>
 <% @tags.each do |tag| %>
 	<i class="fa fa-tags" aria-hidden="true"></i><a href="/listings?tag_id=<%= tag.id %> "><%= tag.name %></a>
+
 <% end %>	
 <br>
-
 
 <!-- ajax call -->
 	<!-- listen for click on option, capture option's value -->
@@ -54,3 +55,4 @@
   <!-- /.row -->
 </div>
 <!-- /container -->
+
