@@ -35,4 +35,9 @@ class PagesController < ApplicationController
     end
 
   end
+
+  def signup
+    @user = User.new
+  end
+
 end
