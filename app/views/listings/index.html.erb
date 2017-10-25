@@ -2,12 +2,13 @@
 
 <% @listings.each do |listing | %>
   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+  <div>Price: <%= listing.price %></div>
+
+  
   <a href="/listings/<%=listing.id %>/edit">EDIT</a>
 
   <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-
     <button>Delete</button>
-
   <% end %>
 
 <% end %>
