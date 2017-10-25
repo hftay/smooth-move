@@ -64,9 +64,22 @@ class ListingsController < ApplicationController
   end
 
   def update
-
+    @listing = Listing.find(params[:id])
     # redirect_to '/listings' #This can be accessed from All Listings EDIT and Dashboard EDIT. Need to find out how to go back where came from
-
+    @listing.title = params[:title]
+    @listing.street = params[:street]
+    @listing.city = params[:city]
+    @listing.postcode = params[:postcode]
+    @listing.moving_date = params[:moving_date]
+    @listing.moving_time = params[:moving_time]
+    @listing.price = params[:price]
+    @listing.description = params[:description]
+    @listing.title = params[:title]
+    @listing.image = params[:image]
+    @listing.creator_id = session[:user_id].to_i
+    @listing.num_helpers_needed = params[:helpers]
+    @listing.save
+  
     redirect_to session[:return_to]
   end
 
