@@ -41,22 +41,16 @@
       event.preventDefault();
 
       var options = {
-        url: "/api/listings/<%= @listing.id %>",
-        method: 'put'
+        url: "/api/listings",
+        method: 'post',
+        data: {
+          listing_id: <%= @listing.id %>
+        }
       }
-      var changeHelperNum = function(response) {
-        console.log(response.new_number)
+      var updateStillNeeded = function(response) {
+        console.log(response.still_needed)
       }
-      $.ajax(options).done(changeHelperNum);
-
-      var options = {
-        url: "/api/listings/<%= @listing.id %>",
-        method: 'post'
-      }
-      var addReccordToHelpers = function(response) {
-        console.log(response)
-      }
-      $.ajax(options).done(addReccordToHelpers);
+      $.ajax(options).done(updateStillNeeded);
 
   });
 

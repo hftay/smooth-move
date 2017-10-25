@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   put '/api/listings/:id', to: 'api/listings#update'
 
-  # get '/api/listings', to: 'api/listings#create'
+  post '/api/listings', to: 'api/listings#create'
 
 
   get '/options', to: 'pages#options'
