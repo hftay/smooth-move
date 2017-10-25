@@ -9,6 +9,10 @@ class Api::ListingsController < ApplicationController
     helpers_signed_up = UserListing.where(listing_id: params[:listing_id]).count
     total_helpers_needed = Listing.find(params[:listing_id]).num_helpers_needed
     still_needed = total_helpers_needed - helpers_signed_up
+
+    if still_needed == 0
+      Listing.find(params[:listing_id]).open = false
+    end
     render json: { still_needed: still_needed }
   end
   def index
