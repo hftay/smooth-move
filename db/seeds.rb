@@ -46,7 +46,9 @@ ListingTag.create([
 	{ listing: Listing.all[1], tag: Tag.all[0] },
 	{ listing: Listing.all[2], tag: Tag.all[0] },
 	{ listing: Listing.all[3], tag: Tag.all[0] },
+	{ listing: Listing.all[4], tag: Tag.all[0] },
+	{ listing: Listing.all[4], tag: Tag.all[1] },	
 	{ listing: Listing.all[5], tag: Tag.all[0] },
 	{ listing: Listing.all[5], tag: Tag.all[1] },	
-	{ listing: Listing.all[5], tag: Tag.all[2] },	
+	{ listing: Listing.all[5], tag: Tag.all[2] }	
 ])
