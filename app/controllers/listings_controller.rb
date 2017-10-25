@@ -20,7 +20,13 @@ class ListingsController < ApplicationController
     listing.price = params[:price]
     listing.description = params[:description]
     listing.title = params[:title]
-    listing.image 
+    listing.image = params[:image]
+    listing.creator_id = session[:user_id].to_i
+    listing.num_helpers_needed = params[:helpers]
+    listing.open = true
+
+    listing.save
+
     redirect_to '/listings'
   end
 
@@ -40,7 +46,8 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-
+    listing = Listing.find(params[:id])
+    listing.destroy
     redirect_to session[:return_to] #This can be accessed from All Listings EDIT and Dashboard EDIT. Need to find out how to go back where came from
 
   end
