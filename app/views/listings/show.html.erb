@@ -24,12 +24,10 @@
     <h2><%= @listing.title %></h2>
     <p>Price: <%= @listing.price %></p>
     <p><%= @listing.full_street_address %></p>
-    <p>Number of people needed for task:<%= @listing.num_helpers_needed %></p>
+    <p>Number of people needed for task:<span id="helpers_needed"><%= @listing.num_helpers_needed %></span></p>
     <p><%= @date %></p>
-    <p>Image url would go here:</p><img src="<%= @listing.image %>">
+    <img src="<%= @listing.image %>">
 
-<!-- reduce num helpers needed by one -->
-<!-- add helper to db reccord -->
 
     <button id='will-help-btn'>I'll Help!</button>
 
@@ -38,6 +36,7 @@
 
     $('#will-help-btn').on('click', function(event) {
       event.preventDefault();
+      $('#will-help-btn').css({"display": "none"})
 
       var options = {
         url: "/api/listings",
@@ -48,6 +47,8 @@
       }
       var updateStillNeeded = function(response) {
         console.log(response.still_needed)
+        var $still_needed = $('#helpers_needed')
+        $still_needed.text(response.still_needed);
       }
       $.ajax(options).done(updateStillNeeded);
 
