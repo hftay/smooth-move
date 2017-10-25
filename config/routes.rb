@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :tags
   resources :users
   root 'pages#index'
-  
+
+  put '/api/listings/:id', to: 'api/listings#update'
+
+  post '/api/listings', to: 'api/listings#create'
+
+
   get '/options', to: 'pages#options'
   get '/signup', to: 'pages#signup'
   get '/login', to: 'pages#login'

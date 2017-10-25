@@ -21,19 +21,40 @@
   </head>
   <body>
     <div id="map"></div>
-    <h3><%= @listing.creator.name %>'s listing:'</h3>
+    <h3><%= @listing.creator.name %>'s listing:</h3>
     <h2><%= @listing.title %></h2>
     <p>Price: <%= @listing.price %></p>
     <p><%= @listing.full_street_address %></p>
+    <p>Number of people needed for task:<%= @listing.num_helpers_needed %></p>
     <p><%= @date %></p>
     <p>Image url would go here:</p><img src="<%= @listing.image %>">
-    <button>I'm interested in helping</button>
 
-<!-- ajax or form? -->
 <!-- reduce num helpers needed by one -->
+<!-- add helper to db reccord -->
 
     <button id='will-help-btn'>I'll Help!</button>
 
+    <script>
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $('#will-help-btn').on('click', function(event) {
+      event.preventDefault();
+
+      var options = {
+        url: "/api/listings",
+        method: 'post',
+        data: {
+          listing_id: <%= @listing.id %>
+        }
+      }
+      var updateStillNeeded = function(response) {
+        console.log(response.still_needed)
+      }
+      $.ajax(options).done(updateStillNeeded);
+
+  });
+
+  </script>
 
     <script>
       var map;
