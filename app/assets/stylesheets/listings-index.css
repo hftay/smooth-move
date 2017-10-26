@@ -1,0 +1,16 @@
+.tags {
+	width: 28%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	}
+
+	.img {
+    position: relative;
+    float: left;
+    width:  100%;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 10px;
+}
