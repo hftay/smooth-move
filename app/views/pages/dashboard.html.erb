@@ -29,6 +29,7 @@
 
           <div class="container btn-container">
             <div class="OuterMostClass row">
+              <div class="your-listing">
               <div class="outerClass col-xs-6">
                 <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
               </div><!--outermost class col 6-->
@@ -41,7 +42,7 @@
                 <% end %>
 
       <% end %>
-
+      </div>
         <% session[:return_to]='/listings' %>
 
   </div>
