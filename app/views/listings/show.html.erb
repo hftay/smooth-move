@@ -31,29 +31,129 @@
     <% if !@thisUserListing %>
     <button id='will-help-btn'>I'll Help!</button>
     <% end %>
-
+    <button id='cal-api-btn'>Add to my Google Calendar</button>
     <script>
-    var token = $('meta[name="csrf-token"]').attr('content');
+    //CALENDER API-------------------------
+
+ // Client ID and API key from the Developer Console
+    $('#cal-api-btn').on('click', function(event) {
+      var CLIENT_ID = '563965008331-pn17v97cf0tj5m1qhhhefjqrt4knmaks.apps.googleusercontent.com';
+                       // 563965008331-pn17v97cf0tj5m1qhhhefjqrt4knmaks.apps.googleusercontent.com
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/calendar";
+
+      var authorizeButton = document.getElementById('cal-api-btn');
+      //var signoutButton = document.getElementById('signout-button');
+
+      /**
+       *  On load, called to load the auth2 library and API client library.
+       */
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+
+      function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+      }
+
+      /**
+       *  Initializes the API client library and sets up sign-in state
+       *  listeners.
+       */
+      function initClient() {
+        gapi.client.init({
+          discoveryDocs: DISCOVERY_DOCS,
+          clientId: CLIENT_ID,
+          scope: SCOPES
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+          authorizeButton.onclick = handleAuthClick;
+          // signoutButton.onclick = handleSignoutClick;
+        });
+      }
+
+      function updateSigninStatus(isSignedIn) {
+
+          if (isSignedIn) {
+
+            console.info('authorized')
+            // authorizeButton.style.display = 'none';
+            // signoutButton.style.display = 'block';
+            // listUpcomingEvents();
+            // var for api cal info
+            // var apiCalInfo = {
+            //   'summary': '<%= @listing.title %>',
+            //   'moveDate': '<%= @listing.moving_date %>',
+            //   'moveTime': '<%= @listing.moving_time %>',
+            //   'creatorId': '<%= @listing.creator_id %>'
+            // }
+
+          var apiCalInfo = {
+            'summary': '<%= @listing.title %>',
+            'location': '800 Howard St., San Francisco, CA 94103',
+            'description': 'A chance to hear more about Google\'s developer products.',
+            'start': {
+              'dateTime': '<%= @listing.moving_date.to_datetime.iso8601 %>',
+              'timeZone': 'America/Los_Angeles'
+            },
+            'end': {
+              'dateTime': '<%= @listing.moving_date.to_datetime.iso8601 %>',
+              'timeZone': 'America/Los_Angeles'
+            }
+          };
+
+
+
+            request.execute(function(event) {
+              // appendPre('Event created: ' + event.htmlLink);
+              console.log(event);
+            });
+
+          } else {
+            console.info('not authorised')
+            // authorizeButton.style.display = 'block';
+            // signoutButton.style.display = 'none';
+          }
+      }
+            var request = gapi.client.calendar.events.insert({
+              'calendarId': 'primary',
+              'resource': apiCalInfo
+            });
+          handleClientLoad()
+         });
+
+// AJAX CODE----------------------------
 
     $('#will-help-btn').on('click', function(event) {
-      event.preventDefault();
-      $('#will-help-btn').css({"display": "none"})
 
-      var options = {
-        url: "/api/listings",
-        method: 'post',
-        data: {
-          listing_id: <%= @listing.id %>
+      var token = $('meta[name="csrf-token"]').attr('content');
+        event.preventDefault();
+        $('#will-help-btn').css({"display": "none"})
+
+        var options = {
+          url: "/api/listings",
+          method: 'post',
+          data: {
+            listing_id: <%= @listing.id %>
+          }
         }
-      }
-      var updateStillNeeded = function(response) {
-        console.log(response.still_needed)
-        var $still_needed = $('#helpers_needed')
-        $still_needed.text(response.still_needed);
-      }
-      $.ajax(options).done(updateStillNeeded);
+        var updateStillNeeded = function(response) {
+          console.log(response.still_needed)
+          var $still_needed = $('#helpers_needed')
+          $still_needed.text(response.still_needed);
+        }
+        $.ajax(options).done(updateStillNeeded);
 
-  });
+    });
 
   </script>
 
@@ -71,8 +171,16 @@
        });
       }
     </script>
+
+<!-- api scripts -->
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGyR8cc8zPWBK4F52J61Gu14HB0EYnQc0&callback=initMap">
     </script>
+  
+   <script async defer src="https://apis.google.com/js/api.js"
+    </script>
+
   </body>
 </html>
+      <!-- onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"> -->
