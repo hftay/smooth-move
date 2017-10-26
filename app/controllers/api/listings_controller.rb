@@ -37,9 +37,6 @@ class Api::ListingsController < ApplicationController
   end
   def destroy
     @listing = Listing.find(params[:listing_id])
-    thisUserListing = UserListing.find_by(listing_id: params[:listing_id], user_id: current_user.id)
-    @listing.open = true
-    thisUserListing.destroy
-    thisUserListing.save
+    @listing.destroy
   end
 end

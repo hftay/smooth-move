@@ -3,7 +3,7 @@
   <div class="row">
     <% @my_listings.each do |listing | %>
       <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
+        <div class="card h-100 delete-content">
           <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
@@ -23,6 +23,8 @@
             <% end %>
 
           </div>
+          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-listing-btn" data-listing-id="<%=listing.id %>">DELETE MY LISTING</button>
+          <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
         </div>
       </div>
 <!--Buttons-->
@@ -31,11 +33,11 @@
             <div class="OuterMostClass row">
               <div class="your-listing">
               <div class="outerClass col-xs-6">
-                <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
+                <!-- <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a> -->
               </div><!--outermost class col 6-->
               <div class="outerClass2 col-xs-6">
                 <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-              <button type="button" class="btn btn-info btn-dark delete">DELETE</button>
+              <!-- <button type="button" class="btn btn-info btn-dark delete">DELETE</button> -->
               </div><!--Outermost class col-6-->
             </div> <!-- .outermostclass ROW-->
           </div> <!--.btn-container-->
@@ -58,8 +60,8 @@
 <div class="container">
   <div class="row">
     <% @listings_helping.each do |listing | %>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100 delete-content">
+      <div class="col-lg-4 col-md-6 mb-4 delete-content">
+        <div class="card h-100">
           <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
@@ -78,7 +80,7 @@
               </div>
             <% end %>
           </div>
-          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-btn" data-listing-id="<%=listing.id %>">DELETE</button>
+          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-help-btn" data-listing-id="<%=listing.id %>">I CAN'T HELP ANYMORE</button>
           <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
         </div>
         <!-- <button type="button" class="btn btn-info btn-dark delete delete-btn" data-listing-id="<%=listing.id %>">DELETE</button> -->
@@ -107,13 +109,11 @@
 <script>
 var token = $('meta[name="csrf-token"]').attr('content');
 
-$('.delete-btn').on('click', function(event) {
+$('.delete-listing-btn').on('click', function(event) {
   event.preventDefault();
 
-  this_card = $(event.target).closest('.delete-content')
-  this_card.remove()
-  listing_id = $('.delete-btn').data().listingId
-debugger
+  listing_id = $('.delete-listing-btn').data().listingId
+
   var options = {
     url: "/api/listings",
     method: 'delete',
@@ -122,10 +122,35 @@ debugger
     }
   }
   var doneComment = function(response) {
-    console.log('you have deleted this person as a helper')
+    console.log('you have deleted this listing')
+    this_card = $(event.target).closest('.delete-content')
+    this_card.remove()
+
   }
   $.ajax(options).done(doneComment);
 
 });
+
+$('.delete-help-btn').on('click', function(event) {
+  event.preventDefault();
+
+  listing_id = $('.delete-help-btn').data().listingId
+
+  var options = {
+    url: "/api/user_listings",
+    method: 'delete',
+    data: {
+      listing_id: listing_id
+    }
+  }
+  var doneComment = function(response) {
+    console.log('you have deleted this person as a helper')
+    this_card = $(event.target).closest('.delete-content')
+    this_card.remove()
+  }
+  $.ajax(options).done(doneComment);
+
+});
+
 
 </script>

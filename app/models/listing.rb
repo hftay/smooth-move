@@ -1,15 +1,14 @@
 class Listing < ApplicationRecord
-	has_many :user_listings
-
+	has_many :user_listings, dependent: :destroy
 	has_many :users, through: :user_listings
 
-	has_many :listing_tags
+	has_many :listing_tags, dependent: :destroy
 	has_many :tags, through: :listing_tags
 
 	belongs_to :creator, class_name: "User", foreign_key: "creator_id"
 
   mount_uploader :image, ImageUploader
-	
+
 	def full_street_address
 		[street,city,state,postcode].join(', ')
 	end
