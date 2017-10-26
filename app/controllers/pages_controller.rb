@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   end
   def dashboard
-    @my_listings = Listing.where(creator_id: current_user)
+    @my_listings_all = Listing.where(creator_id: current_user)
+    @my_listings = @my_listings_all.where(open: true)
     @listings_helping = current_user.listings
   end
   def edit

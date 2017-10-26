@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20171026062027) do
     t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.text "title"
     t.boolean "open"
     t.integer "num_helpers_needed"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "tags", force: :cascade do |t|
