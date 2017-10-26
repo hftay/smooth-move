@@ -102,15 +102,15 @@
 
           var apiCalInfo = {
             'summary': '<%= @listing.title %>',
-            'location': '800 Howard St., San Francisco, CA 94103',
+            'location': '<%= @listing.street %>',
             'description': 'A chance to hear more about Google\'s developer products.',
             'start': {
               'dateTime': '<%= @listing.moving_date.to_datetime.iso8601 %>',
-              'timeZone': 'America/Los_Angeles'
+              'timeZone': 'Australia/Melbourne'
             },
             'end': {
               'dateTime': '<%= @listing.moving_date.to_datetime.iso8601 %>',
-              'timeZone': 'America/Los_Angeles'
+              'timeZone': 'Australia/Melbourne'
             }
           };
 
