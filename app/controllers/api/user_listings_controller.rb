@@ -5,6 +5,5 @@ class Api::UserListingsController < ApplicationController
     @listing.open = true
     @listing.save
     thisUserListing.destroy
-    thisUserListing.save
   end
 end

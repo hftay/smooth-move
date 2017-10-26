@@ -7,7 +7,7 @@
           <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-                   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+                   <a href="/listings/<%= listing.id %>"><%= listing.title %></a>
                   </h4>
             <h5>$<%= listing.price %></h5>
             <p class="card-text">
@@ -23,7 +23,7 @@
             <% end %>
 
           </div>
-          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-listing-btn" data-listing-id="<%=listing.id %>">DELETE MY LISTING</button>
+          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-listing-btn" data-listing-id="<%= listing.id %>">DELETE MY LISTING</button>
           <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
 
           <div class="card-body">
-            <h4 class="card-title"><a href="/listings/<%=listing.id %>"><%= listing.title %></a></h4>
+            <h4 class="card-title"><a href="/listings/<%= listing.id %>"><%= listing.title %></a></h4>
             <h5>$<%= listing.price %></h5>
             <p class="card-text"><%=listing.description %></p>
           </div>
@@ -64,7 +64,7 @@
             <% end %>
           </div>
 
-          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-help-btn" data-listing-id="<%=listing.id %>">I CAN'T HELP ANYMORE</button>
+          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-help-btn" data-listing-id="<%= listing.id %>">I CAN'T HELP ANYMORE</button>
           <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
 
         </div>
@@ -92,7 +92,6 @@ $('.delete-listing-btn').on('click', function(event) {
     console.log('you have deleted this listing')
     this_card = $(event.target).closest('.delete-content')
     this_card.remove()
-
   }
   $.ajax(options).done(doneComment);
 
