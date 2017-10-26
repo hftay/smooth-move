@@ -1,8 +1,8 @@
 # SmoothMove
 
-## Don't pay big rates for small moves  
+#### Don't pay big rates for small moves  
 
-Nobody likes moving. The objective of the app is to create a better moving experience for users. If you have ever had to conduct a move by yourself, you will understand the pain and inefficiencies of moving solo. Often, people who are conducting moves are new to the city and may not have the network of friends to call upon for help. 
+Nobody likes moving. The objective of the app is to create a better moving experience for users. If you have ever conducted a move by yourself, you will understand the pain and inefficiencies of moving solo. Often, people who are conducting moves are new to the city and may not have the network of friends to call upon for help. 
 
 The average removalist service in inner city Melbourne is at least $200, as removalist companies often impose a minimum booking duration, even for small and short distance moves. 
 
@@ -13,12 +13,12 @@ A user is someone seeking help to:
 - relocate
 - transport a bulky item (e.g. if you have purchased/sold a second-hand piano on gumtree and don't have an appropriate transport)
 
-A helper is someone seeking a reward by providing:  
+A helper is someone seeking a reward by providing:
 - labour (i.e. an extra pair of hands)
 - transport (e.g. a van or a truck)
 - supplies (e.g. boxes, tapes, tools)
 
-Explanations of the technologies used  
+#### Technologies used  
 - HTML5, CSS3, Bootstrap
 - jQuery and Ajax requests
 - Git for version control and Github collaboration
@@ -28,8 +28,8 @@ Explanations of the technologies used
 - External APIs used: Google Maps API, Google Calendar API
 - Deployed via Heroku
 
-A couple paragraphs about the general approach you took
-Installation instructions for any dependencies
-Link to your user stories – who are your users, what do they want, and why?
-Link to your wireframes – sketches of major views / interfaces in your application
-Descriptions of any unsolved problems or major hurdles your team had to overcome
+#### A couple paragraphs about the general approach you took
+#### Installation instructions for any dependencies
+#### Link to your user stories – who are your users, what do they want, and why?
+#### Link to your wireframes – sketches of major views / interfaces in your application
+#### Descriptions of any unsolved problems or major hurdles your team had to overcome
