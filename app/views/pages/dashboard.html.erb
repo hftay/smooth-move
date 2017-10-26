@@ -7,7 +7,7 @@
           <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-                   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+                   <a href="/listings/<%= listing.id %>"><%= listing.title %></a>
                   </h4>
             <h5>$<%= listing.price %></h5>
             <p class="card-text">
@@ -23,31 +23,16 @@
             <% end %>
 
           </div>
-          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-listing-btn" data-listing-id="<%=listing.id %>">DELETE MY LISTING</button>
+          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-listing-btn" data-listing-id="<%= listing.id %>">DELETE MY LISTING</button>
           <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
         </div>
       </div>
 <!--Buttons-->
 
-          <div class="container btn-container">
-            <div class="OuterMostClass row">
-              <div class="your-listing">
-              <div class="outerClass col-xs-6">
-                <!-- <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a> -->
-              </div><!--outermost class col 6-->
-              <div class="outerClass2 col-xs-6">
-                <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-              <!-- <button type="button" class="btn btn-info btn-dark delete">DELETE</button> -->
-              </div><!--Outermost class col-6-->
-            </div> <!-- .outermostclass ROW-->
-          </div> <!--.btn-container-->
-                <% end %>
 
-      <% end %>
-      </div>
-        <% session[:return_to]='/listings' %>
+<% end %>
 
-  </div>
+</div>
   <!-- /.row -->
 </div>
 <!-- /container -->
@@ -60,51 +45,33 @@
 <div class="container">
   <div class="row">
     <% @listings_helping.each do |listing | %>
+
       <div class="col-lg-4 col-md-6 mb-4 delete-content">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-                   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
-                  </h4>
-            <h5>$<%= listing.price %></h5>
-            <p class="card-text">
-              <%=listing.description %>
-            </p>
-          </div>
-          <div class="card-footer">
 
+          <div class="card-body">
+            <h4 class="card-title"><a href="/listings/<%= listing.id %>"><%= listing.title %></a></h4>
+            <h5>$<%= listing.price %></h5>
+            <p class="card-text"><%=listing.description %></p>
+          </div>
+
+          <div class="card-footer">
             <% listing.tags.each do |tag| %>
               <div><i class="fa fa-tags" aria-hidden="true"></i>
-                <%=tag.name %>
+                <%= tag.name %>
               </div>
             <% end %>
           </div>
-          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-help-btn" data-listing-id="<%=listing.id %>">I CAN'T HELP ANYMORE</button>
+
+          <button style="background:darkgrey;width:100%;margin:0;" type="button" class="btn btn-info btn-dark delete delete-help-btn" data-listing-id="<%= listing.id %>">I CAN'T HELP ANYMORE</button>
           <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a>
+
         </div>
-        <!-- <button type="button" class="btn btn-info btn-dark delete delete-btn" data-listing-id="<%=listing.id %>">DELETE</button> -->
       </div>
 <!--Buttons-->
 
-          <div class="container btn-container">
-            <div class="OuterMostClass row">
-              <div class="outerClass col-xs-6">
-                <!-- <a href="/listings/<%=listing.id %>/edit" class="btn btn-info btn-dark" role="button">EDIT</a> -->
-              </div><!--outermost class col 6-->
-              <div class="outerClass2 col-xs-6">
-                <%= form_tag "/listings/#{listing.id}", method:"delete" do %>
-              <!-- <button type="button" class="btn btn-info btn-dark delete delete-btn" data-listing-id="<%=listing.id %>">DELETE</button> -->
-              </div><!--Outermost class col-6-->
-            </div> <!-- .outermostclass ROW-->
-          </div> <!--.btn-container-->
-        <% end %>
-      <% end %>
-      <% session[:return_to]='/listings' %>
-  </div>
-  <!-- /.row -->
-</div>
-
+<% end %>
 
 <script>
 var token = $('meta[name="csrf-token"]').attr('content');
@@ -125,7 +92,6 @@ $('.delete-listing-btn').on('click', function(event) {
     console.log('you have deleted this listing')
     this_card = $(event.target).closest('.delete-content')
     this_card.remove()
-
   }
   $.ajax(options).done(doneComment);
 
