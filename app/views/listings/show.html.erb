@@ -24,12 +24,13 @@
     <h2><%= @listing.title %></h2>
     <p>Price: <%= @listing.price %></p>
     <p><%= @listing.full_street_address %></p>
-    <p>Number of people needed for task:<span id="helpers_needed"><%= @listing.num_helpers_needed %></span></p>
+    <p>Number of people needed for task:<span id="helpers_needed"><%= @still_needed %></span></p>
     <p><%= @date %></p>
     <img src="<%= @listing.image %>">
 
-
+    <% if !@thisUserListing %>
     <button id='will-help-btn'>I'll Help!</button>
+    <% end %>
 
     <script>
     var token = $('meta[name="csrf-token"]').attr('content');
