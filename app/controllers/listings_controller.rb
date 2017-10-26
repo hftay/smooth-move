@@ -4,11 +4,7 @@ class ListingsController < ApplicationController
   def index
     @tags = Tag.all
 
-<<<<<<< HEAD
     if params[:tag_id] && params[:tag_id] != "show_all"
-=======
-    if params[:tag_id]
->>>>>>> saving changes so that I can make pull request
       @listings = []
       @closed_listings = []
       @listing_tags = ListingTag.where(tag_id: params[:tag_id])
@@ -21,12 +17,8 @@ class ListingsController < ApplicationController
         end
       end
     else
-<<<<<<< HEAD
       @listings = Listing.where(open: true)
       @closed_listings = Listing.where(open: false)
-=======
-      @listings = Listing.all
->>>>>>> saving changes so that I can make pull request
     end
   end
 
@@ -85,6 +77,7 @@ class ListingsController < ApplicationController
 
     # if this reccord exits don't show button, if it does not exist show button
     @thisUserListing = UserListing.find_by(listing_id: params[:id], user_id: current_user.id)
+
 
     helpers_signed_up = UserListing.where(listing_id: params[:id]).count
     total_helpers_needed = @listing.num_helpers_needed
