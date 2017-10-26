@@ -10,10 +10,11 @@ class Api::ListingsController < ApplicationController
     total_helpers_needed = Listing.find(params[:listing_id]).num_helpers_needed
     still_needed = total_helpers_needed - helpers_signed_up
 
+    users = User.includes(:user_listings).where(user_listings: { listing_id: params[:listing_id] })
     if still_needed == 0
       Listing.find(params[:listing_id]).open = false
     end
-    render json: { still_needed: still_needed }
+    render json: { still_needed: still_needed, users:users }
   end
   def index
     @listings = Listing.all
