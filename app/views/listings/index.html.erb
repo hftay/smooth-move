@@ -17,21 +17,25 @@
 	})
 </script>
 
+
+
 <!-- HTML section -->
 <div class="container">
   <div class="row">
     <% @listings.each do |listing | %>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="<%= listing.image %>" alt=""></a>
+          <img class="card-img-top" src="<%= listing.image %>" alt="">
           <div class="card-body">
             <h4 class="card-title">
-                   <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
-                  </h4>
+              <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
+            </h4>
             <h5>$<%= listing.price %></h5>
+            
             <p class="card-text">
               <%=listing.description %>
             </p>
+          
           </div>
           <div class="card-footer">
             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -45,7 +49,7 @@
           </div>
         </div>
       </div>
-      <% end %>
+    <% end %>
 
       <% session[:return_to]='/listings' %>
 
