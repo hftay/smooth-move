@@ -96,7 +96,7 @@ class ListingsController < ApplicationController
     @listing.price = params[:price]
     @listing.description = params[:description]
     @listing.title = params[:title]
-    @listing.image = params[:image]
+    @listing.image = params[:listing][:image]
     @listing.creator_id = session[:user_id].to_i
     @listing.num_helpers_needed = params[:helpers]
     @listing.save
