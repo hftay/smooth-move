@@ -10,6 +10,7 @@
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                <label for="">Name</label>
                 <div class="col-md-8">
                   <input id="fname" name="title" value="<%= @listing.title %>" type="text" placeholder="<%= @listing.title %>" class="form-control">
                 </div>
@@ -17,63 +18,78 @@
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-address-book bigicon" aria-hidden="true"></i></span>
+                <label for="">Street</label>                
                 <div class="col-md-8">
-                  <input id="lname" name="street" value="" type="text" placeholder="<%= @listing.street %>" class="form-control">
+                  <input id="lname" name="street" type="text" value="<%= @listing.street %>" class="form-control">
                 </div>
               </div>
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"></span>
+                <label for="">City</label>                                
                 <div class="col-md-8">
-                  <input id="email" name="city" value="" type="text" placeholder="<%= @listing.city %>" class="form-control">
+                  <input id="email" name="city" type="text" value="<%= @listing.city %>" class="form-control">
                 </div>
               </div>
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"></span>
+                <label for="">Postcode</label>                                                
                 <div class="col-md-8">
-                  <input id="phone" name="postcode" value="" type="text" placeholder="<%= @listing.postcode %>" class="form-control">
+                  <input id="phone" name="postcode" type="text" value="<%= @listing.postcode %>" class="form-control">
                 </div>
               </div>
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon" aria-hidden="true"></i></span>
+                <label for="">Date</label>                
                 <div class="col-md-8">
-                  <input id="phone" name="moving_date" value="" type="date" placeholder="<%= @listing.moving_date %>" class="form-control">
+                  <input id="phone" name="moving_date" type="date" value="<%= @listing.moving_date %>" class="form-control">
                 </div>
-              </div <div class="form-group">
-              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-clock-o bigicon" aria-hidden="true"></i></span>
-              <div class="col-md-8">
-                <input id="phone" name="moving_time" value="" type="time" placeholder="<%= @listing.moving_time %>" class="form-control">
+              </div> 
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-clock-o bigicon" aria-hidden="true"></i></span>
+                <label for="">Time</label>                                
+                <div class="col-md-8">
+                  <input id="phone" name="moving_time" type="time" value="<%= @listing.moving_time %>" class="form-control">
+                </div>
+              </div> 
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon" aria-hidden="true"></i></span>
+                <label for="">Price ($AUD)</label>                                
+                <div class="col-md-8">
+                <input id="phone" name="price" type="text" value="<%= @listing.price %>" class="form-control">
+                </div>
+              </div> 
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-picture-o bigicon" aria-hidden="true"></i></span>
+                <label for="">Image</label>                                                
+                <div class="col-md-8">
+                  <input id="phone" name="image" type="text" placeholder="<%= @listing.image %>" class="form-control">
+                </div>
+              </div> 
+
+              <div class="form-group textarea">
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                <label for="">Description</label>                                                
+                <div class="col-md-8">
+                  <div>
+                    <textarea class="form-control" id="message" name="description" placeholder="<%= @listing.description %>" rows="7"></textarea>
+                  </div>
+                </div>
               </div>
-        </div <div class="form-group">
-        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon" aria-hidden="true"></i></span>
-        <div class="col-md-8">
-          <input id="phone" name="price" value="" type="text" placeholder="<%= @listing.price %>" class="form-control">
-        </div>
-      </div <div class="form-group">
-      <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-picture-o bigicon" aria-hidden="true"></i></span>
-      <div class="col-md-8">
-        <input id="phone" name="image" value="" type="text" placeholder="<%= @listing.image %>" class="form-control">
-      </div>
-    </div <div class="form-group textarea">
-    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-    <div class="col-md-8">
-      <div>
-        <textarea class="form-control" id="message" name="description" placeholder="<%= @listing.description %> " rows="7"></textarea>
-      </div>
-    </div>
-  </div>
 
+              <div class="form-group">
+                <div class="col-md-12 text-center">
+                  <button type="submit" class="btn btn-primary btn-lg">SUBMIT</button>
+                </div>
+              </div>
 
-
-      <div class="form-group">
-        <div class="col-md-12 text-center">
-          <button type="submit" class="btn btn-primary btn-lg">SUBMIT</button>
-        </div>
-      </div>
-      </fieldset>
-      <% end %>
+            </fieldset>
+          <% end %>
         </div><!--close form-->
       </div>
     </div>
