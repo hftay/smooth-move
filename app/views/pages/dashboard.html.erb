@@ -30,12 +30,9 @@
 <!--Buttons-->
 
 
-<%= form_tag "/listings/#{listing.id}", method:"delete" do %>
 <% end %>
-<% end %>
-<% session[:return_to]='/listings' %>
 
-  </div>
+</div>
   <!-- /.row -->
 </div>
 <!-- /container -->
@@ -74,13 +71,7 @@
       </div>
 <!--Buttons-->
 
-
-<%= form_tag "/listings/#{listing.id}", method:"delete" do %>
 <% end %>
-<% end %>
-<% session[:return_to]='/listings' %>
-
-
 
 <script>
 var token = $('meta[name="csrf-token"]').attr('content');
