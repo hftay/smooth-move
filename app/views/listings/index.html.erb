@@ -1,12 +1,13 @@
 <h1 class="page-title">Listings Board</h1>
 
 <!-- Filter by tag -->
-<span>Filter by Tags:</span>
-	<i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=show_all">Show All</a>
+  <div class="tags">
+  <i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=show_all">Show All</a>
 <% @tags.each do |tag| %>
-  <i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=<%= tag.id %>"> <%= tag.name %></a>  
-<% end %>	
-<br>
+   <i class="fa fa-tags" aria-hidden="true"></i><a class="tag" href="/listings?tag_id=<%= tag.id %>"> <%= tag.name %></a>
+<% end %> 
+  </div>
+
 
 <script>
 	$('.tag').on("click", function(event){
@@ -30,7 +31,7 @@
             <h4 class="card-title">
               <a href="/listings/<%=listing.id %>"><%= listing.title %></a>
             </h4>
-            <h5>$<%= listing.price %></h5>
+            <h5>$<%= listing.price %> </h5>
             
             <p class="card-text">
               <%=listing.description %>
