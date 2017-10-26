@@ -4,7 +4,7 @@
 
 Nobody likes moving. The objective of the app is to create a better moving experience for users. If you have ever conducted a move by yourself, you will understand the pain and inefficiencies of moving solo. Often, people who are conducting moves are new to the city and may not have the network of friends to call upon for help. 
 
-The average removalist service in inner city Melbourne is at least $200, as removalist companies often impose a minimum booking duration, even for small and short distance moves. 
+The **minimum cost** for hiring a removalist service in inner city Melbourne is at least $200, as removalist companies often impose a minimum booking duration, even for small and short distance moves. 
 
 SmoothMove is a platform that connects help-seekers with helpers. A help-seeker can post a listing and offer a reward in return for help. SmoothMove enables users to offer a fair price for the specific type of service they require.  
 
