@@ -16,6 +16,19 @@
         height: 100%;
         margin: 0;
       }
+      .userPics {
+        display:flex;
+        width: 100%;
+      }
+      .userPic {
+        width:100px;
+        height: 100px;
+      }
+      .userPic img{
+        width:100%;
+        height:100%;
+      }
+
     </style>
   </head>
   <body>
@@ -32,6 +45,18 @@
     <button id='will-help-btn'>I'll Help!</button>
     <% end %>
     <button id='cal-api-btn'>Add to my Google Calendar</button>
+
+    <h2>Helpers</h2>
+    <div class="userPics" >
+      <% @users.each do |user| %>
+        <div class="userPic">
+          <img src="<%=user.image.url %>" alt="">
+        </div>
+      <% end %>
+    </div>
+
+
+
     <script src="https://apis.google.com/js/api.js"></script>
     <div class="userPics">
 
@@ -158,11 +183,14 @@
           console.log(response.still_needed)
           var $still_needed = $('#helpers_needed')
           $still_needed.text(response.still_needed);
-          debugger
+          $('.userPics').empty()
           response.users.forEach(function(user){
             $img = $('<img>')
+            $div = $('<div>')
+            $div.addClass('userPic')
             $img.attr('src', user.image.url)
-            $('.userPics').append($img)
+            $div.append($img)
+            $('.userPics').append($div)
           })        }
       $.ajax(options).done(updateStillNeeded);
 

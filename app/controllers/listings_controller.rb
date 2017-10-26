@@ -75,6 +75,9 @@ class ListingsController < ApplicationController
     @date = String(@listing.moving_time)
     @date = @date.slice(11..15)
 
+    @users = User.includes(:user_listings).where(user_listings: { listing_id: params[:id] })
+
+
     # if this reccord exits don't show button, if it does not exist show button
     @thisUserListing = UserListing.find_by(listing_id: params[:id], user_id: current_user.id)
 
