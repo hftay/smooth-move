@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 		@user.name = params[:name]
 		@user.email = params[:email]
 		@user.password = params[:password]
-    @user.image_url = params[:image]
+    @user.image = params[:user][:image]
 		@user.save
     redirect_to '/login'
   end

@@ -33,6 +33,10 @@
     <% end %>
     <button id='cal-api-btn'>Add to my Google Calendar</button>
     <script src="https://apis.google.com/js/api.js"></script>
+    <div class="userPics">
+
+
+    </div>
     <script>
     //CALENDER API-------------------------
 
@@ -154,8 +158,13 @@
           console.log(response.still_needed)
           var $still_needed = $('#helpers_needed')
           $still_needed.text(response.still_needed);
-        }
-        $.ajax(options).done(updateStillNeeded);
+          debugger
+          response.users.forEach(function(user){
+            $img = $('<img>')
+            $img.attr('src', user.image.url)
+            $('.userPics').append($img)
+          })        }
+      $.ajax(options).done(updateStillNeeded);
 
     });
 
