@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   post '/api/listings', to: 'api/listings#create'
+  delete '/api/listings', to: 'api/listings#destroy'
 
   get '/options', to: 'pages#options'
   get '/signup', to: 'pages#signup'
