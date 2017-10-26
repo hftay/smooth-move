@@ -28,8 +28,9 @@
     <p><%= @date %></p>
     <img src="<%= @listing.image %>">
 
-
+    <% if !@thisUserListing %>
     <button id='will-help-btn'>I'll Help!</button>
+    <% end %>
 
     <script>
     var token = $('meta[name="csrf-token"]').attr('content');
@@ -37,7 +38,7 @@
     $('#will-help-btn').on('click', function(event) {
       event.preventDefault();
       $('#will-help-btn').css({"display": "none"})
-debugger
+
       var options = {
         url: "/api/listings",
         method: 'post',

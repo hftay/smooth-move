@@ -83,6 +83,9 @@ class ListingsController < ApplicationController
     @date = String(@listing.moving_time)
     @date = @date.slice(11..15)
 
+    # if this reccord exits don't show button, if it does not exist show button
+    @thisUserListing = UserListing.find_by(listing_id: params[:id], user_id: current_user.id)
+
     helpers_signed_up = UserListing.where(listing_id: params[:id]).count
     total_helpers_needed = @listing.num_helpers_needed
     @still_needed = total_helpers_needed - helpers_signed_up
