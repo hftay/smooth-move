@@ -38,6 +38,5 @@ class Api::ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:listing_id])
     @listing.destroy
-    @listing.save
   end
 end

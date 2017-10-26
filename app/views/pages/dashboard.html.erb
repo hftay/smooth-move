@@ -112,8 +112,6 @@ var token = $('meta[name="csrf-token"]').attr('content');
 $('.delete-listing-btn').on('click', function(event) {
   event.preventDefault();
 
-  this_card = $(event.target).closest('.delete-content')
-  this_card.remove()
   listing_id = $('.delete-listing-btn').data().listingId
 
   var options = {
@@ -125,6 +123,9 @@ $('.delete-listing-btn').on('click', function(event) {
   }
   var doneComment = function(response) {
     console.log('you have deleted this listing')
+    this_card = $(event.target).closest('.delete-content')
+    this_card.remove()
+
   }
   $.ajax(options).done(doneComment);
 
@@ -133,10 +134,7 @@ $('.delete-listing-btn').on('click', function(event) {
 $('.delete-help-btn').on('click', function(event) {
   event.preventDefault();
 
-  this_card = $(event.target).closest('.delete-content')
-  this_card.remove()
   listing_id = $('.delete-help-btn').data().listingId
-
 
   var options = {
     url: "/api/user_listings",
@@ -147,6 +145,8 @@ $('.delete-help-btn').on('click', function(event) {
   }
   var doneComment = function(response) {
     console.log('you have deleted this person as a helper')
+    this_card = $(event.target).closest('.delete-content')
+    this_card.remove()
   }
   $.ajax(options).done(doneComment);
 
