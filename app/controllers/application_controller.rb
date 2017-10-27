@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
 
   helper_method :current_user
@@ -22,4 +23,11 @@ class ApplicationController < ActionController::Base
     session[:previous_route] = route
   end
 
+  private
+
+  def authenticate
+    if !current_user
+      redirect_to '/login'
+    end
+  end
 end
