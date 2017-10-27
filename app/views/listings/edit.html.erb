@@ -19,7 +19,7 @@
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-address-book bigicon" aria-hidden="true"></i></span>
-                <label for="">Street</label>                
+                <label for="">Street</label>
                 <div class="col-md-8">
                   <input id="lname" name="street" type="text" value="<%= @listing.street %>" class="form-control">
                 </div>
@@ -27,7 +27,7 @@
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"></span>
-                <label for="">City</label>                                
+                <label for="">City</label>
                 <div class="col-md-8">
                   <input id="email" name="city" type="text" value="<%= @listing.city %>" class="form-control">
                 </div>
@@ -35,7 +35,7 @@
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"></span>
-                <label for="">Postcode</label>                                                
+                <label for="">Postcode</label>
                 <div class="col-md-8">
                   <input id="phone" name="postcode" type="text" value="<%= @listing.postcode %>" class="form-control">
                 </div>
@@ -43,31 +43,39 @@
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon" aria-hidden="true"></i></span>
-                <label for="">Date</label>                
+                <label for="">Date</label>
                 <div class="col-md-8">
                   <input id="phone" name="moving_date" type="date" value="<%= @listing.moving_date %>" class="form-control">
                 </div>
-              </div> 
+              </div>
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-clock-o bigicon" aria-hidden="true"></i></span>
-                <label for="">Time</label>                                
+                <label for="">Time</label>
                 <div class="col-md-8">
                   <input id="phone" name="moving_time" type="time" value="<%= @listing.moving_time %>" class="form-control">
                 </div>
-              </div> 
+              </div>
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon" aria-hidden="true"></i></span>
-                <label for="">Price ($AUD)</label>                                
+                <label for="">Price ($AUD)</label>
                 <div class="col-md-8">
-                <input id="phone" name="price" type="text" value="<%= @listing.price %>" class="form-control">
+                <input id="phone" name="price" type="number" value="<%= @listing.price %>" class="form-control">
                 </div>
-              </div> 
+              </div>
+
+              <div class="form-group">
+                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon" aria-hidden="true"></i></span>
+                <label for="">How many people do you need to help you?</label>
+                <div class="col-md-8">
+                <input id="num_helpers_needed" name="num_helpers_needed" type="number" value="<%= @listing.num_helpers_needed %>" class="form-control">
+                </div>
+              </div>
 
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-picture-o bigicon" aria-hidden="true"></i></span>
-                <label for="">Image</label>                                                
+                <label for="">Image</label>
                 <div class="col-md-8">
                   <!-- <input id="phone" name="image" type="text" placeholder="<%= @listing.image %>" class="form-control"> -->
                   <p>
@@ -75,11 +83,11 @@
                     <%= f.hidden_field :image_cache %>
                   </p>
                 </div>
-              </div> 
+              </div>
 
               <div class="form-group textarea">
                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                <label for="">Description</label>                                                
+                <label for="">Description</label>
                 <div class="col-md-8">
                   <div>
                     <textarea class="form-control" id="message" name="description" placeholder="<%= @listing.description %>" rows="7"></textarea>
