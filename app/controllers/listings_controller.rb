@@ -41,6 +41,7 @@ before_action :authenticate
     listing.description = params[:description]
     listing.title = params[:title]
     listing.image = params[:image]
+    listing.num_helpers_needed = params[:num_helpers_needed]
     listing.creator_id = session[:user_id].to_i
     if params[:helpers] == ""
       params[:helpers] = 1
