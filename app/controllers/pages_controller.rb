@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate, except: [:login, :index, :validate_logon]
+  before_action :authenticate, except: [:login, :index, :validate_logon, :signup] 
   def login
 
   end

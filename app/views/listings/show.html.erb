@@ -81,7 +81,7 @@
       <hr>
         <div class="userPics" >
           <% @users.each do |user| %>
-            <img class="img-thumbnail rounded user-img userPic" src="<%=user.image.url %>" alt="">
+            <img class="img-circle user-img userPic" src="<%=user.image.url %>" alt="">
           <% end %>
     </div>
   </div><!--row-->
@@ -219,6 +219,7 @@
           $('.userPics').empty()
           response.users.forEach(function(user){
             $img = $('<img>')
+            $img.addClass('img-circle user-img userPic')
             $div = $('<div>')
             $div.addClass('userPic')
             $img.attr('src', user.image.url)
