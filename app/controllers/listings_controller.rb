@@ -1,5 +1,6 @@
 
 class ListingsController < ApplicationController
+before_action :authenticate
 
   def index
     @tags = Tag.all
@@ -113,5 +114,7 @@ class ListingsController < ApplicationController
     redirect_to session[:return_to] #This can be accessed from All Listings EDIT and Dashboard EDIT. Need to find out how to go back where came from
 
   end
+
+
 
 end
