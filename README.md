@@ -34,4 +34,4 @@ A helper is someone seeking a reward by providing:
 #### Link to your wireframes – sketches of major views / interfaces in your application
 #### Descriptions of any unsolved problems or major hurdles your team had to overcome
 
-...
+
