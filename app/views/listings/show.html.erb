@@ -81,9 +81,7 @@
       <hr>
         <div class="userPics" >
           <% @users.each do |user| %>
-            <div class="userPic">
-              <img class="img-thumbnail rounded user-img" src="<%=user.image.url %>" alt="">
-            </div>
+            <img class="img-thumbnail rounded user-img userPic" src="<%=user.image.url %>" alt="">
           <% end %>
     </div>
   </div><!--row-->
