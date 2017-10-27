@@ -51,7 +51,7 @@
         </div>
       </div>
 <% if logged_in? %>
-  <div class="logged-in"> Logged in as : <%= current_user.name %> </div>
+  <div class="logged-in"> Logged in as : <%= current_user.name %>  <img class="logged-in-img" src="<%= current_user.image.url %>" alt=""></div>
 
 <% end %>
     </nav>
