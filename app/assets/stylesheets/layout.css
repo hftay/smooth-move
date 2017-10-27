@@ -22,3 +22,10 @@ a, button {
 	margin: 10px 0px 20px 0px;
 	text-decoration: underline;
 }
+
+.logged-in-img{
+    width: 10%;
+    border-radius: 50%;
+    border: 2px solid #66b3ff;
+    margin: 3px;
+  }
