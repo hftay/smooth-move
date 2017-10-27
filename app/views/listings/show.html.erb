@@ -4,67 +4,88 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <script src="https://apis.google.com/js/api.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 300px;
-        width: 300px;
+        height: 400px;
+        width: 400px;
       }
       /* Optional: Makes the sample page fill the window. */
       html {
         height: 100%;
         margin: 0;
       }
-      .userPics {
-        display:flex;
-        width: 100%;
-
-      }
-      .userPic {
-        width:100px;
-        height: 100px;
-          border:3px solid black;
-      }
-      .userPic img{
-        width:100%;
-        height:100%;
-      }
 
     </style>
   </head>
   <body>
-    <div id="map"></div>
-    <h3><%= @listing.creator.name %>'s listing:</h3>
-    <h2><%= @listing.title %></h2>
-    <p>Price: <%= @listing.price %></p>
-    <p><%= @listing.full_street_address %></p>
-    <p>Number of people needed for task:<span id="helpers_needed"><%= @still_needed %></span></p>
-    <p><%= @date %></p>
-    <img src="<%= @listing.image %>">
 
-    <% if !@thisUserListing && current_user.id != @listing.creator_id %>
-    <button id='will-help-btn'>I'll Help!</button>
-    <% end %>
+<div class="page-wrapper">
+  
 
-    <button id='cal-api-btn'>Add to my Google Calendar</button>
+<div class="row user-image-row">
+  <div class="col-lg-3 col-md-6">
+    <div class="img" style="background-image:url('<%= @listing.image %>');"></div>
+  </div>
+</div><!--/row-->
 
-    <h2>Helpers</h2>
-    <div class="userPics" >
-      <% @users.each do |user| %>
-          <div class="userPic">
-          <img src="<%=user.image.url %>" alt="">
-        </div>
-      <% end %>
+<hr>
+
+<div class="row map">
+
+  <div class="col-lg-8">
+   <div id="map"></div>
+  </div><!--/col-lg-8-->
+
+    <div class=" col-lg-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="4" scope="col"><%= @listing.creator.name %>'s listing:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Title</th>
+              <td><%= @listing.title %> </td>
+          </tr>
+          <tr>
+            <th scope="row">Price</th>
+              <td>$<%= @listing.price %> </td>
+          </tr>
+          <tr>
+            <th scope="row">Address</th>
+              <td><%= @listing.full_street_address %> </td>
+          </tr>
+          <tr>
+            <th scope="row">Date</th>
+              <td>Date: <%= @date %> </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btn-container" style="width: 100%;">
+          <% if !@thisUserListing && current_user.id != @listing.creator_id %>
+            <div><button id="will-help-btn" type="button" class="btn btn-primary">I'll Help</button></div>
+          <% end %>
+          <div><button id="cal-api-btn" type="button" class="btn btn-secondary">Add Google Calendar</button></div>
+      </div><!--/btn-container-->
+    </div><!--/col-lg-4-->
+  </div><!--/row-->
+  <div class="helper-img"></div><!--row-->
+</div><!-- /page-wrapper -->
+
+<h2>Helpers</h2>
+<div class="userPics" >
+  <% @users.each do |user| %>
+      <div class="userPic">
+      <img src="<%=user.image.url %>" alt="">
     </div>
+  <% end %>
+</div>
 
-
-
-    <script src="https://apis.google.com/js/api.js"></script>
-    <!-- <div class="userPics">
-
-
-    </div> -->
     <script>
     //CALENDER API-------------------------
 
@@ -195,9 +216,9 @@
             $img.attr('src', user.image.url)
             $div.append($img)
             $('.userPics').append($div)
-          })        }
-      $.ajax(options).done(updateStillNeeded);
-
+          })
+        }
+        $.ajax(options).done(updateStillNeeded);
     });
 
   </script>
