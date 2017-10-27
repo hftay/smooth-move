@@ -219,6 +219,7 @@
           $('.userPics').empty()
           response.users.forEach(function(user){
             $img = $('<img>')
+            $img.addClass('img-circle user-img userPic')
             $div = $('<div>')
             $div.addClass('userPic')
             $img.attr('src', user.image.url)
