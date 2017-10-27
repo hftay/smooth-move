@@ -23,15 +23,6 @@
   <body>
 
 <div class="page-wrapper">
-  
-
-<div class="row user-image-row">
-  <div class="col-lg-3 col-md-6">
-    <div class="img" style="background-image:url('<%= @listing.image %>');"></div>
-  </div>
-</div><!--/row-->
-
-<hr>
 
 <div class="row map">
 
@@ -75,11 +66,12 @@
     </div><!--/col-lg-4-->
   </div><!--/row-->
     <div class="helper-img">
-      <h2>Helpers</h2>
+      <h2 class="helper">Helpers</h2>
+      <hr>
         <div class="userPics" >
           <% @users.each do |user| %>
             <div class="userPic">
-              <img src="<%=user.image.url %>" alt="">
+              <img class="img-thumbnail rounded user-img" src="<%=user.image.url %>" alt="">
             </div>
           <% end %>
     </div>

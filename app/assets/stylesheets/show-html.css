@@ -22,6 +22,10 @@
 		margin-bottom: 10px;
    }
 
-   .user-image-row {
-   
+   .user-img {
+   width: 9%;
+   }
+
+   .helper {
+    padding-left: 10px;
    }
