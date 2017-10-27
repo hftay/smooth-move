@@ -4,4 +4,6 @@
 
   .login-btn {
   	padding: 20px;
+  	width: 15%;
+    margin: 0 auto;
   }
