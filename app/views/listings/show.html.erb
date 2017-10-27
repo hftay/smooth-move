@@ -209,7 +209,13 @@
 
           console.log(response.still_needed)
           var $still_needed = $('#helpers_needed')
+
+          if (response.still_needed == 0) {
+            response.still_needed = "This listing has all the helpers it needs!"
+          };
+
           $still_needed.text(response.still_needed);
+
           $('.userPics').empty()
           response.users.forEach(function(user){
             $img = $('<img>')
