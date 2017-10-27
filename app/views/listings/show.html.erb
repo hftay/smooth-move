@@ -40,13 +40,11 @@
     <p>Number of people needed for task:<span id="helpers_needed"><%= @still_needed %></span></p>
     <p><%= @date %></p>
     <img src="<%= @listing.image %>">
-    <p>Current user id:<%= current_user.id %></p>
-    <p>Creator id:<%= @listing.creator_id %></p>
 
     <% if !@thisUserListing && current_user.id != @listing.creator_id %>
     <button id='will-help-btn'>I'll Help!</button>
     <% end %>
-    
+
     <button id='cal-api-btn'>Add to my Google Calendar</button>
 
     <h2>Helpers</h2>
