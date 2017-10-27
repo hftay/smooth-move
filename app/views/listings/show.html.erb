@@ -74,17 +74,18 @@
       </div><!--/btn-container-->
     </div><!--/col-lg-4-->
   </div><!--/row-->
-  <div class="helper-img"></div><!--row-->
+    <div class="helper-img">
+      <h2>Helpers</h2>
+        <div class="userPics" >
+          <% @users.each do |user| %>
+            <div class="userPic">
+              <img src="<%=user.image.url %>" alt="">
+            </div>
+          <% end %>
+    </div>
+  </div><!--row-->
 </div><!-- /page-wrapper -->
 
-<h2>Helpers</h2>
-<div class="userPics" >
-  <% @users.each do |user| %>
-      <div class="userPic">
-      <img src="<%=user.image.url %>" alt="">
-    </div>
-  <% end %>
-</div>
 
     <script>
     //CALENDER API-------------------------

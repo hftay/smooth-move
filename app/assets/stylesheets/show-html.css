@@ -6,11 +6,9 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 1px solid black;
     width: 40%;
-    margin: 20px;
+    margin-top: 20px;
     padding-top: 80px;
-    border-radius: 50%
    }
 
    .map {
