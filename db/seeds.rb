@@ -13,11 +13,11 @@ Listing.destroy_all
 User.destroy_all
 
 User.create([
-	{ name: "DT", phone: "0422188199", email: "dt@gmail.com", password: "pudding", remote_image_url: "/assets/images/general_assumbly.jpg" },
-	{ name: "Darryl", phone: "0422188199", email: "darryl@gmail.com", password: "pudding" },
-	{ name: "Hsing", phone: "0422188199", email: "hsing@gmail.com", password: "pudding" },
-	{ name: "Jessica", phone: "0422188199", email: "jessica@gmail.com", password: "pudding" },
-	{ name: "Pauline", phone: "0422188199", email: "pauline@gmail.com", password: "pudding" }
+	{ name: "DT", phone: "0422188199", email: "dt@gmail.com", password: "pudding", remote_image_url: "https://pbs.twimg.com/profile_images/813584000082214912/5U3iZVs-.jpg" },
+	{ name: "Darryl", phone: "0422188199", email: "darryl@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/media/p/7/005/03c/1e2/27e4d4f.jpg" },
+	{ name: "Hsing", phone: "0422188199", email: "hsing@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAIA_wDGAAAAAQAAAAAAAAnOAAAAJGRhMjc0ZTI3LWQ1ZGUtNDYxMC05YzNiLWZmMDQzMDQ3MGJmNQ.jpg" },
+	{ name: "Jessica", phone: "0422188199", email: "jessica@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/media/AAIA_wDGAAAAAQAAAAAAAA18AAAAJDkzNGI0OGMyLWIyNDUtNDc0ZC1iYmNhLTY3MDJmYWIwMzBlNw.jpg" },
+	{ name: "Pauline", phone: "0422188199", email: "pauline@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/media/AAEAAQAAAAAAAAokAAAAJDRjM2E5NzM1LWQ3MjEtNGM0My04ZmEzLTZkNzA0MGM0MDU1MQ.jpg" }
 ])
 
 Listing.create([
