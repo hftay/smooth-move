@@ -52,8 +52,19 @@
           </tr>
           <tr>
             <th scope="row">Date</th>
-              <td>Date: <%= @date %> </td>
+              <td><%= @listing.moving_date %> </td>
           </tr>
+
+<!--           <tr>
+            <th scope="row">Num Helpers Requested:</th>
+              <td><%= @listing.num_helpers_needed %> </td>
+          </tr> -->
+
+          <tr>
+            <th scope="row">Helpers still needed:</th>
+              <td id="helpers_needed"><%= @still_needed %> </td>
+          </tr>
+
         </tbody>
       </table>
 
