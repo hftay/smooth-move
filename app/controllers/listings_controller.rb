@@ -103,7 +103,7 @@ before_action :authenticate
     @listing.title = params[:title]
     @listing.image = params[:listing][:image]
     @listing.creator_id = session[:user_id].to_i
-    @listing.num_helpers_needed = params[:helpers]
+    @listing.num_helpers_needed = params[:num_helpers_needed]
     @listing.save
 
     redirect_to session[:return_to]
