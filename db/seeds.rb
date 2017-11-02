@@ -16,7 +16,7 @@ User.destroy_all
 
 User.create([
 	# { name: "DT", phone: "0422188199", email: "dt@gmail.com", password: "pudding", remote_image_url: "https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/1700/thumb_HEADSHOTS__2001_.jpg" },
-	{ name: "DT", phone: "0422188199", email: "dt@gmail.com", password: "pudding", remote_image_url: "https://s3-ap-southeast-2.amazonaws.com/wdi-smooth-move/uploads/user/image/195/thumb_HEADSHOTS__2001_.jpg" }.
+	{ name: "DT", phone: "0422188199", email: "dt@gmail.com", password: "pudding", remote_image_url: "https://s3-ap-southeast-2.amazonaws.com/wdi-smooth-move/uploads/user/image/195/thumb_HEADSHOTS__2001_.jpg" },
 	{ name: "Darryl", phone: "0422188199", email: "darryl@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/media/p/7/005/03c/1e2/27e4d4f.jpg" },
 	{ name: "Hsing", phone: "0422188199", email: "hsing@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAIA_wDGAAAAAQAAAAAAAAnOAAAAJGRhMjc0ZTI3LWQ1ZGUtNDYxMC05YzNiLWZmMDQzMDQ3MGJmNQ.jpg" },
 	{ name: "Jessica", phone: "0422188199", email: "jessica@gmail.com", password: "pudding", remote_image_url: "https://media.licdn.com/media/AAIA_wDGAAAAAQAAAAAAAA18AAAAJDkzNGI0OGMyLWIyNDUtNDc0ZC1iYmNhLTY3MDJmYWIwMzBlNw.jpg" },
@@ -24,7 +24,7 @@ User.create([
 ])
 
 Listing.create([
-	{title: "Help me move my fancy fridge", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "Van and one helper needed, short distance move!", remote_image_url: "http://www.heartsremained.com/wp-content/uploads/2013/11/open-refrigerator.jpg", creator: User.all[0], open: true, num_helpers_needed: 2, moving_date: Time.now.to_date},
+	{title: "Help me move my fancy fridge", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 30, description: "Van and one helper needed, short distance move!", remote_image_url: "https://s3-ap-southeast-2.amazonaws.com/wdi-smooth-move/uploads/listing/image/261/open-refrigerator.jpg", creator: User.all[0], open: true, num_helpers_needed: 2, moving_date: Time.now.to_date},
 	{title: "Help move Bed and Mattress", street: "1 Collins Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 49.99, description: "it's a king mattress so will need some serious muscles", remote_image_url: "https://s7d4.scene7.com/is/image/roomandboard/642103?$prodzoom0$&size=498,300&scl=1", creator: User.all[1], open: true, num_helpers_needed: 3, moving_date: Time.now.to_date},
 	{title: "Borrow vehicle for move", street: "130 Dudley Street", city: "Melbourne", state: "Victoria", postcode: 3003, price: 50, description: "need vehicle for 1 hour use to move stuff", remote_image_url: "http://www.cumminsforum.com/forum/attachments/4th-gen-non-powertrain/36195d1311561753-let-me-see-black-trucks-img_1446.jpg", creator: User.all[2], open: true, num_helpers_needed: 1, moving_date: Time.now.to_date},
 	{title: "Supplies needed for relocation", street: "45 William Street", city: "Melbourne", state: "Victoria", postcode: 3000, price: 10, description: "need many boxes, ideally evenly sized, and high quality ones!", remote_image_url: "http://boxbros.com/wp-content/uploads/2016/03/moving-happy-boxes.jpg", creator: User.all[3], open: true, num_helpers_needed: 1, moving_date: Time.now.to_date},
